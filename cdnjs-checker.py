@@ -89,7 +89,7 @@ def fnParse(content):
 # Test if you have a command line option
 
 if len(sys.argv) != 2:
-    sys.stderr.write("No command line option supplied.\n")
+    sys.stderr.write("Error: No command line option supplied. At least one command line option is expected.\n")
     usage()
     sys.exit(1)
 
@@ -106,11 +106,15 @@ if re.match(re_http_test, cmo):
 else:
     # Looks like a file, test it
     if os.path.exists(cmo) and os.path.isfile(cmo):
-        cmo_file = open(cmo, 'r')
-        fnParse(cmo_file.read())
-        cmo_file.close()
+        try:
+            cmo_file = open(cmo, 'r')
+            fnParse(cmo_file.read())
+            cmo_file.close()
+        except IOError:
+            sys.stderr.write("Error: Unable to open file.\n")
+            sys.exit(1)
     else:
-        sys.stderr.write("File does not exist, or is not a file.")
+        sys.stderr.write("Error: File does not exist, or is not a file.\n")
         sys.exit(1)
 
 sys.exit(0)
