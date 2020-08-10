@@ -1,6 +1,6 @@
 # cdnjs Checker
 
-A python 3 script to search for uses of cdnjs in files or websites, then uses the cdnjs API to check for updates.
+A python 3 script to search for uses of cdnjs in files or web pages, then uses the cdnjs API to check for potential updates.
 
 ## Dependencies
 
@@ -29,3 +29,7 @@ https://creativecommons.org/licenses/by-sa/4.0/
 Author: newtovaux
 
 https://github.com/newtovaux/cdn-js-checker
+
+## Thanks
+
+Thanks to @mattipv4 for their suggested improvements.
