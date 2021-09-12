@@ -101,7 +101,7 @@ cmo = sys.argv[1]
 if re.match(re_http_test, cmo):
     # Looks like a URL
     fp = urllib.request.urlopen(cmo)
-    mybytes = fp.read().decode("ascii") 
+    mybytes = fp.read().decode('utf8', 'ignore') 
     fnParse(mybytes)
     fp.close()
 else:
