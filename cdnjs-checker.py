@@ -38,18 +38,18 @@ def fnCheckLatest(library, used_ver):
     # Is the API default version more up to date than the used version?
     # Red
     if version.parse(used_ver) < version.parse(api_ver):
-        print("\t\033[31mcdnjs default version available: {api_ver}\033[0m".format(api_ver = api_ver))
+        print("\t\033[31mOutdated. Version available on cdnjs: {api_ver}\033[0m".format(api_ver = api_ver))
         updates += 1
 
     # Is the API default version the same as the used version?
     # Green
     if version.parse(used_ver) == version.parse(api_ver):
-        print("\t\033[32mcdnjs default version available: {api_ver}\033[0m".format(api_ver = api_ver))
+        print("\t\033[32mUp to date. Version available on cdnjs: {api_ver}\033[0m".format(api_ver = api_ver))
 
     # Is the API default version less up to date than the used version?
     # Yellow
     if version.parse(used_ver) > version.parse(api_ver):
-        print("\t\033[33mcdnjs default version available: {api_ver}\033[0m".format(api_ver = api_ver))
+        print("\t\033[33mAhead. Version available on cdnjs: {api_ver}\033[0m".format(api_ver = api_ver))
         aheads += 1
 
     return
@@ -80,7 +80,8 @@ def fnParse(content):
         sys.exit(1)
 
     global updates, aheads
-    print("\n{count} update(s) available.".format(count = updates))
+    print("\n{count} libraries from cdnjs found.".format(count = count))
+    print("{count} update(s) available.".format(count = updates))
     print("{count} libraries ahead of the default version.\n".format(count = aheads))
 
     return
